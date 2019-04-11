@@ -1,52 +1,56 @@
+#import modules
 from turtle import*
 import time
 import math
 
-ver = str(1.8)
+#set data
+ver = str(1.9)
+platform = 'Repl.it Web Server'
+print('Anaconda: v' +ver+ ' for '+platform)
 
-print('-----------------------Anaconda: v'+ver+' for Repl Web -----------------------')
-ccolor = 0
-shape('classic')
-speed(0)
-table = {}
 #Defining keys for segmaented numbers
 # '8', top, topleft, bottomleft, bottom, bottomright, topright, middle
 numberk = {' ':80000000,'=':81000001,'-':80000001,'l':80001110,'i':80110000,'a':81110111,'m':800101010010101,'0':81111110,'1':80110000,'2':81101101,'3':81111001,'4':80110011,'5':81011011,'6':81011111,'7':81110000,'8':81111111,'9':81111011}
 
+#Define main variables
+ccolor = 0
+shape('classic')
+speed(0)
+table = {}
 penplot = Turtle()
 penplot.speed(0)
 penplot.penup()
 penplot.goto(10000,10000)
 penplot.shape('none')
+
+#function defenitions
 def plot(scale):
   if ccolor == 1:
-    color(255, 0, 0)
+    penplot.color(255, 0, 0)
   elif ccolor == 2:
-    color(50,205,50)
+    penplot.color(50,205,50)
   elif ccolor == 3:
-    color(0,0,255)
+    penplot.color(0,0,255)
   else:
     color(ccolor/30,ccolor/20,ccolor/1579)
   cn = -500
   penup()
-  speed(0.000000000000000000000000000000000000001)
-  if dod != 0:
+  speed(0)
+  if table[end]/table[end-1] == table[end-1]/table[end-2]:
+    penplot.penup()
+    for x in range(-600,600,5):
+      penplot.goto(float(x),30*(float(b)*(float(r)**(float(x)/30))))
+      penplot.pendown()
+  elif dod != 0:
     penup()
     for x in range(-600,600,5):
       penplot.goto(float(x),30.0*((float(dod)/2.0)*((float(x)/30.0)**2.0))+(float(b)*(float(x)/30.0))+(30*(table[0])))
       penplot.pendown()
-  else:
+  elif dod == 0:
     penplot.penup()
     for x in range(-600,600,30):
       penplot.goto(x,30*(m*(x/30)+b))
       penplot.pendown()
-
-    #while cn <= 500:
-     # py = (m*(cn/30)+b)
-      #setheading(cn,py*30)
-      #goto(cn,(py*30))
-      #pendown()
-      #cn = cn + 1  
 def drawn(num,size,step):
   length = len(str(num))
   for ccc in range(length):
@@ -86,9 +90,16 @@ def findequation():
   dd2=table[end]-table[end-1]
   dd1=table[end-1]-table[end-2]
   global dod
+  global r
+  global b
   dod=(dd2-dd1)
-  if dod != 0:
-    global b
+  if table[end]/table[end-1] == table[end-1]/table[end-2]:
+    b = table[0]
+    r = table[end]/table[end-1]
+    y = 'y='
+    equation = y + str(b) + '(' + str(r) + ')^x'
+    return equation
+  elif dod != 0:
     b=(table[1]-table[-1])/2
     bx=str(b) + "x" + "+"
     global c
@@ -104,12 +115,10 @@ def findequation():
     b = table[0]
     eq = "y=" + str(m) + "x" + "+" + str(b)
     return eq
-  elif table[end]/table[end-1] == table[end-1]/table[end-2]:
-    print("eggg")
 def gttab(start,end):
   count = start
   while count <= end:
-    n = float(input('What is Y is X is ' + str(count) + '?'))
+    n = float(input('What is Y if X is ' + str(count) + '?'))
     table[count]=n
     count = count + 1
   print (table)
@@ -192,8 +201,12 @@ def mkgraph(scale):
     drawn(drawthing,5,0.5)
     penup()
     ystep = ystep - scale
+
+#loading
 print ("loading...")
 print ("This might take a while, all of the graphing is done with Turtle graphics. This should be fixed in later versions.")
+
+#mainloop
 while True:
   mkgraph(30)
   print ('done')
