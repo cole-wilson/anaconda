@@ -1,3 +1,12 @@
+#(c) September 27, 2019
+# by Cole Wilson
+#for Python 3+
+
+# Please Note: this program can only be ran in a graphical session.
+
+#----------------------------------------------Start Code-----------------------------------------------------------------#
+
+
 #import modules
 from turtle import*
 import time
@@ -5,7 +14,7 @@ import math
 
 #set data
 ver = str(1.9)
-platform = 'Repl.it Web Server'
+platform = 'repl.it Web Server'
 print('Anaconda: v' +ver+ ' for '+platform)
 
 #Defining keys for segmaented numbers
@@ -205,7 +214,6 @@ def mkgraph(scale):
 #loading
 print ("loading...")
 print ("This might take a while, all of the graphing is done with Turtle graphics. This should be fixed in later versions.")
-
 #mainloop
 while True:
   mkgraph(30)
@@ -238,3 +246,6 @@ while True:
   if ppp == 'e':
     break
 print ('Bye!')
+#----------------------------------------------End Code-----------------------------------------------------------------#
+
+#Thank you!
