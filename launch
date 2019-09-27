@@ -1,3 +1,4 @@
 #! /bin/sh
 
-python3 anaconda-09-27-2019-v1.91.py
+echo Started Anaconda
+python3 ./code/anaconda-09-27-2019-v1.91.py &
