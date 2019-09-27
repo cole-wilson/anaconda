@@ -13,7 +13,7 @@ import time
 import math
 
 #set data
-ver = str(1.9)
+ver = str(1.91)
 platform = 'repl.it Web Server'
 print('Anaconda: v' +ver+ ' for '+platform)
 
