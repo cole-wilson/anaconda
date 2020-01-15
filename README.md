@@ -5,7 +5,7 @@
 3. Then type `sh launch &`
 4. The code should load.
 ### Windows / Mac
-**This will only work if you have Python 3 installed**
+**This will only work if you have Python 3.6+ installed**
 1. Un-archive the file, and launch it in your IDLE shell.
 # Credits
 Made by Cole Wilson
